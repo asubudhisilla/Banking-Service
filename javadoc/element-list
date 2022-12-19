@@ -1,0 +1,12 @@
+com.assignment.banking.BankingService
+com.assignment.banking.BankingService.configuration
+com.assignment.banking.BankingService.controller
+com.assignment.banking.BankingService.dto.request
+com.assignment.banking.BankingService.dto.response
+com.assignment.banking.BankingService.entity
+com.assignment.banking.BankingService.exception
+com.assignment.banking.BankingService.IntegrationTesting
+com.assignment.banking.BankingService.repository
+com.assignment.banking.BankingService.respository
+com.assignment.banking.BankingService.service
+com.assignment.banking.BankingService.validators
