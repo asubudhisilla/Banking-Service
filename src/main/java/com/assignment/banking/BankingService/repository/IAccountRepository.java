@@ -12,8 +12,6 @@ import java.util.UUID;
 @Repository
 public interface IAccountRepository extends JpaRepository<Account, UUID> {
 
-    @Query(value = "select * from account_details  where first_name = :firstName"
-            + " and last_name = :lastName", nativeQuery = true)
-    Optional<Account> searchByFirstAndLastName(@Param("firstName") String firstName,
-                                                @Param("lastName") String lastName);
+    @Query(value = "select * from account_details  where email = :email", nativeQuery = true)
+    Optional<Account> searchByEmailId(@Param("email") String email);
 }

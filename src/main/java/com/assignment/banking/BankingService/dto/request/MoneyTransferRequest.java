@@ -1,11 +1,11 @@
 package com.assignment.banking.BankingService.dto.request;
 
 import com.assignment.banking.BankingService.validators.ValidUUID;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Digits;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.Digits;
 import java.math.BigDecimal;
 import java.util.UUID;
 

@@ -25,32 +25,23 @@ public class TransactionServiceTest {
     private ITransactionsRepository transactionRepository;
     private Account account;
     private Transactions transactions;
-    private CardDetails cardDetails;
     private TransactionsServiceImpl transactionsService;
 
     @BeforeEach
     public void setup() {
-        cardDetails = CardDetails.builder()
-                .cardNumber(UUID.randomUUID())
-                .type(CardType.CREDIT)
-                .build();
         account = Account.builder()
+                .name("Amar")
+                .openingBalance(new BigDecimal("100.0"))
+                .closingBalance(new BigDecimal("100.0"))
+                .email("amars400@gmail.com")
                 .accountNumber(UUID.randomUUID())
-                .dob(LocalDate.of(1990,6,4))
-                .firstName("Amar")
-                .lastName("Silla")
-                .address("NL")
-                .openingBalance(new BigDecimal(100.00))
-                .closingBalance(new BigDecimal(100.00))
-                .cardDetails(cardDetails)
                 .build();
         transactions = Transactions.builder()
                 .transactionId(UUID.randomUUID())
                 .transactionType(TransactionType.DEBIT)
-                .transactionRequest(TransactionRequest.WITHDRAW)
+                .transactionRequest(TransactionRequest.TRANSFER)
                 .transactionAmount(new BigDecimal(20.0))
                 .status(Status.SUCCESS)
-                .transactionFee(new BigDecimal(2.0))
                 .account(account)
                 .build();
         transactionsService = new TransactionsServiceImpl(transactionRepository);

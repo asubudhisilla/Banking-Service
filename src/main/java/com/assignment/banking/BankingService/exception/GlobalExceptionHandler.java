@@ -1,6 +1,7 @@
 package com.assignment.banking.BankingService.exception;
 
 import com.assignment.banking.BankingService.dto.response.ErrorDetails;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import javax.servlet.http.HttpServletRequest;
+
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;

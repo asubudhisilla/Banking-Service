@@ -1,11 +1,11 @@
 package com.assignment.banking.BankingService.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.UUID;
@@ -28,11 +28,11 @@ public class Transactions {
     @Column(name = "transaction_amount")
     private BigDecimal transactionAmount;
 
-    @Column(name = "transaction_fee")
-    private BigDecimal transactionFee;
-
     @Enumerated(EnumType.STRING)
     private Status status;
+
+    @Column(name = "message")
+    private String message;
 
     @Enumerated(EnumType.STRING)
     private TransactionType transactionType;

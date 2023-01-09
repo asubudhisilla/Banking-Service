@@ -33,7 +33,7 @@ public class TransactionsController {
         Account account = accountService.getAccountDetailsByAccountNumber(accountNumber);
         AccountStatement accountStatement = AccountStatement.builder()
                 .accountNumber(account.getAccountNumber())
-                .firstName(account.getFirstName())
+                .firstName(account.getName())
                 .transactionList(transactionsService.findAllTransactionByAccountId(accountNumber))
                 .build();
         return ResponseEntity.ok().body(accountStatement);

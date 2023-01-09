@@ -1,7 +1,8 @@
 package com.assignment.banking.BankingService.validators;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
+
 import java.util.UUID;
 
 public class UUIDValidator implements ConstraintValidator<ValidUUID, UUID> {

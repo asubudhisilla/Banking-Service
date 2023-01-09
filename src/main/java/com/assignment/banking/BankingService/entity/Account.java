@@ -1,15 +1,12 @@
 package com.assignment.banking.BankingService.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
@@ -30,18 +27,15 @@ public class Account {
     private UUID accountNumber;
 
     @NotBlank
-    @Column(name = "first_name")
-    private String firstName;
+    @Column(name = "name")
+    private String name;
 
     @NotBlank
-    @Column(name = "last_name")
-    private String lastName;
+    @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}",
+            flags = Pattern.Flag.CASE_INSENSITIVE)
+    @Column(name = "email")
+    private String email;
 
-    @Column(name = "date_of_birth")
-    private LocalDate dob;
-
-    @Column(name = "address")
-    private String address;
 
     @Column(name = "opening_balance")
     @DecimalMin(value = "0.0", inclusive = false)
@@ -52,12 +46,6 @@ public class Account {
     @DecimalMin(value = "0.0", inclusive = false)
     @Digits(integer = 10, fraction = 2)
     private BigDecimal closingBalance;
-
-    @JsonManagedReference
-    @OneToOne(fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL,
-            mappedBy = "account")
-    private CardDetails cardDetails;
 
     @JsonManagedReference
     @OneToMany(fetch = FetchType.LAZY,

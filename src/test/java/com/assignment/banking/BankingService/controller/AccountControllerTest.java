@@ -2,8 +2,6 @@ package com.assignment.banking.BankingService.controller;
 
 import com.assignment.banking.BankingService.configuration.AccountConfiguration;
 import com.assignment.banking.BankingService.entity.Account;
-import com.assignment.banking.BankingService.entity.CardDetails;
-import com.assignment.banking.BankingService.entity.CardType;
 import com.assignment.banking.BankingService.service.AccountServiceImpl;
 import com.assignment.banking.BankingService.service.TransactionsServiceImpl;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -48,19 +46,12 @@ public class AccountControllerTest {
     public void givenAccountObject_whenCreateAccount_thenReturnSavedAccount() throws Exception {
 
         // given - precondition or setup
-        CardDetails cardDetails = CardDetails.builder()
-                .cardNumber(UUID.randomUUID())
-                .type(CardType.CREDIT)
-                .build();
         Account account = Account.builder()
+                .name("Amar")
+                .openingBalance(new BigDecimal("100.0"))
+                .closingBalance(new BigDecimal("100.0"))
+                .email("amars400@gmail.com")
                 .accountNumber(UUID.randomUUID())
-                .dob(LocalDate.of(1990, 6, 4))
-                .firstName("Amar")
-                .lastName("Silla")
-                .address("NL")
-                .openingBalance(new BigDecimal(100.00))
-                .closingBalance(new BigDecimal(100.00))
-                .cardDetails(cardDetails)
                 .build();
         given(accountService.createAccount(any(Account.class)))
                 .willAnswer((invocation) -> invocation.getArgument(0));
