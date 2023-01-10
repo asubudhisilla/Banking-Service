@@ -4,7 +4,7 @@ services:
   banking-service-app:
     image: 'banking-service-h2m:latest'
     ports:
-      - "8080:8080"
+      - "8082:8080"
     build:
       context: .
     container_name: banking-service

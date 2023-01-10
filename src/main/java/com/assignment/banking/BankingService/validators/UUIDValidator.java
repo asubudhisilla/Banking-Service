@@ -13,6 +13,8 @@ public class UUIDValidator implements ConstraintValidator<ValidUUID, UUID> {
 
     @Override
     public boolean isValid(UUID uuid, ConstraintValidatorContext cxt) {
+        if(uuid == null || (uuid !=null &&uuid.toString().isBlank()))
+            return false;
         return uuid.toString().matches(this.regex);
     }
 }

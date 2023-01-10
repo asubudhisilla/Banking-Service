@@ -7,10 +7,10 @@ import com.assignment.banking.BankingService.exception.AccountNotFoundException;
 import com.assignment.banking.BankingService.exception.AccountTransferException;
 import com.assignment.banking.BankingService.repository.IAccountRepository;
 import com.assignment.banking.BankingService.repository.ITransactionsRepository;
-import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-@Transactional
+@Transactional(noRollbackFor = { AccountTransferException.class })
 @AllArgsConstructor
 public class AccountServiceImpl implements IAccountService {
 
