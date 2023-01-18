@@ -33,8 +33,7 @@ public class AccountServiceImpl implements IAccountService {
         if (existingAccount.isPresent()) {
             throw new AccountExistException(String.format("Account already exists with given email=%s", account.getEmail()));
         }
-        Account savedAccount = accountRepository.save(account);
-        return savedAccount;
+        return accountRepository.save(account);
     }
 
     @Override
@@ -46,7 +45,6 @@ public class AccountServiceImpl implements IAccountService {
     @Override
     public List<Transactions> transfer(Account fromAccount, Account toAccount, MoneyTransferRequest moneyTransferRequest) {
         List<Transactions> transactions = new ArrayList<>();
-        BigDecimal fee = new BigDecimal("0.0");
         if (fromAccount.getClosingBalance().compareTo(BigDecimal.ONE) > 0
                 && fromAccount.getClosingBalance().compareTo(moneyTransferRequest.getTransferAmount()) > 0) {
             fromAccount.setClosingBalance(fromAccount.getClosingBalance().subtract(moneyTransferRequest.getTransferAmount()));
