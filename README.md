@@ -15,9 +15,13 @@ H2-Console-> http://localhost:8080/h2-console
 My assumptions ->
 1. While creating account user need to pass same opening balance and closing balance.
 2. Account class is composed of List of transaction, basic user details like  name, emailId, address.
-3. User can process with two type of transactions(Deposit/Withdraw).
-4. When user request for Withdraw, then Transaction request type will be "Withdraw" and TransactionType would be "Debit".
-5. When user request for Deposit, there would be two transaction one Debit and other would be Credit with request type as "Withdraw".
-6. Amount entered would be in range of 0.00 till 9999999999.00
-7. Account balance can never be negative.
-8. For transaction using Credit, balance should be transaction AMount+Fee should be less than closing balance.
+3. User can process with transfer type of transactions(Transfer).
+4. When user request for Transfer, there would be two transaction one Debit and other would be Credit with request type as "Withdraw".
+5. Amount entered would be in range of 0.00 till 9999999999.00
+6. Account balance can never be negative.
+7. Use spring profile local for H2 DB and local testing.
+8. I have used persistence DB and can be activated using profile prod.
+9. I have committed docker compose file containing the app and oracle DB image.
+10. We have 2 docker-compose file for each environment.
+11. Also shared the Postman collection for testing.
+12. I have used profile test for Junit and integration testing.
