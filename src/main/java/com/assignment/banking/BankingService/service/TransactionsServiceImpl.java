@@ -1,7 +1,7 @@
 package com.assignment.banking.BankingService.service;
 
 import com.assignment.banking.BankingService.entity.Transactions;
-import com.assignment.banking.BankingService.repository.ITransactionsRepository;
+import com.assignment.banking.BankingService.repository.TransactionsRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +13,10 @@ import java.util.UUID;
 @Service
 @Transactional
 @AllArgsConstructor
-public class TransactionsServiceImpl implements ITransactionsService {
+public class TransactionsServiceImpl implements TransactionsService {
 
     @Autowired
-    private ITransactionsRepository transactionRepository;
+    private TransactionsRepository transactionRepository;
 
     @Override
     public Transactions createTransaction(Transactions transaction) {

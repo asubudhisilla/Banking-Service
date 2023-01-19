@@ -1,7 +1,7 @@
 package com.assignment.banking.BankingService.respository;
 
 import com.assignment.banking.BankingService.entity.Account;
-import com.assignment.banking.BankingService.repository.IAccountRepository;
+import com.assignment.banking.BankingService.repository.AccountRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AccountRepositoryTest {
 
     @Autowired
-    private IAccountRepository accountRepository;
+    private AccountRepository accountRepository;
 
 
     @Test

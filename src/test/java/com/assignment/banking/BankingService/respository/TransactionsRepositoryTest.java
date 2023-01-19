@@ -1,15 +1,14 @@
 package com.assignment.banking.BankingService.respository;
 
 import com.assignment.banking.BankingService.entity.*;
-import com.assignment.banking.BankingService.repository.IAccountRepository;
-import com.assignment.banking.BankingService.repository.ITransactionsRepository;
+import com.assignment.banking.BankingService.repository.AccountRepository;
+import com.assignment.banking.BankingService.repository.TransactionsRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -20,10 +19,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TransactionsRepositoryTest {
 
     @Autowired
-    private IAccountRepository accountRepository;
+    private AccountRepository accountRepository;
 
     @Autowired
-    private ITransactionsRepository transactionsRepository;
+    private TransactionsRepository transactionsRepository;
 
     @Test
     public void should_find_all_transactions_by_accountNumber() {

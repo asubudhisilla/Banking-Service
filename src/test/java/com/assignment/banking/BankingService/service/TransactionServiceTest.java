@@ -1,7 +1,7 @@
 package com.assignment.banking.BankingService.service;
 
 import com.assignment.banking.BankingService.entity.*;
-import com.assignment.banking.BankingService.repository.ITransactionsRepository;
+import com.assignment.banking.BankingService.repository.TransactionsRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,9 +10,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -24,7 +22,7 @@ import static org.mockito.Mockito.when;
 public class TransactionServiceTest {
 
     @Mock
-    private ITransactionsRepository transactionRepository;
+    private TransactionsRepository transactionRepository;
     private Account account;
     private Transactions transactions;
     private TransactionsServiceImpl transactionsService;

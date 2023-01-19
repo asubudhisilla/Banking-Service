@@ -5,7 +5,7 @@ import com.assignment.banking.BankingService.dto.response.MoneyTransferResponse;
 import com.assignment.banking.BankingService.entity.Account;
 import com.assignment.banking.BankingService.entity.Transactions;
 import com.assignment.banking.BankingService.exception.BalanceMismatchException;
-import com.assignment.banking.BankingService.service.IAccountService;
+import com.assignment.banking.BankingService.service.AccountService;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -26,7 +26,7 @@ public class AccountController {
     private ModelMapper mapper;
 
     @Autowired
-    private IAccountService accountService;
+    private AccountService accountService;
 
     @PostMapping
     public ResponseEntity<String> createAccount(@Valid @RequestBody Account account) {

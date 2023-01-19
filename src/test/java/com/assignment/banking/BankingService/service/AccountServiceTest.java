@@ -5,8 +5,8 @@ import com.assignment.banking.BankingService.entity.*;
 import com.assignment.banking.BankingService.exception.AccountExistException;
 import com.assignment.banking.BankingService.exception.AccountNotFoundException;
 import com.assignment.banking.BankingService.exception.AccountTransferException;
-import com.assignment.banking.BankingService.repository.IAccountRepository;
-import com.assignment.banking.BankingService.repository.ITransactionsRepository;
+import com.assignment.banking.BankingService.repository.AccountRepository;
+import com.assignment.banking.BankingService.repository.TransactionsRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,7 +15,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -31,9 +30,9 @@ import static org.mockito.Mockito.when;
 public class AccountServiceTest {
 
     @Mock
-    private IAccountRepository accountRepository;
+    private AccountRepository accountRepository;
     @Mock
-    private ITransactionsRepository transactionsRepository;
+    private TransactionsRepository transactionsRepository;
 
     private AccountServiceImpl accountService;
     private Account account;

@@ -10,7 +10,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface IAccountRepository extends JpaRepository<Account, UUID> {
+public interface AccountRepository extends JpaRepository<Account, UUID> {
 
     @Query(value = "select * from account_details  where email = :email", nativeQuery = true)
     Optional<Account> searchByEmailId(@Param("email") String email);

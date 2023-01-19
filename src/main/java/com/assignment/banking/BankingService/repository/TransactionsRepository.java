@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface ITransactionsRepository extends JpaRepository<Transactions, UUID> {
+public interface TransactionsRepository extends JpaRepository<Transactions, UUID> {
 
     @Query(value = "select * from transactions t where t.account_number = :id", nativeQuery = true)
     List<Transactions> findByAccountNumber(@Param("id") UUID accountNumber);

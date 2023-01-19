@@ -2,8 +2,8 @@ package com.assignment.banking.BankingService.controller;
 
 import com.assignment.banking.BankingService.dto.response.AccountStatement;
 import com.assignment.banking.BankingService.entity.Account;
-import com.assignment.banking.BankingService.service.IAccountService;
-import com.assignment.banking.BankingService.service.ITransactionsService;
+import com.assignment.banking.BankingService.service.AccountService;
+import com.assignment.banking.BankingService.service.TransactionsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +22,10 @@ public class TransactionsController {
     private static final Logger logger = LoggerFactory.getLogger(AccountController.class);
 
     @Autowired
-    private ITransactionsService transactionsService;
+    private TransactionsService transactionsService;
 
     @Autowired
-    private IAccountService accountService;
+    private AccountService accountService;
 
     @GetMapping
     public ResponseEntity<AccountStatement> getAllTransactionsByAccountNumber(@RequestParam(name = "accountNumber") UUID accountNumber) {

@@ -5,8 +5,8 @@ import com.assignment.banking.BankingService.entity.*;
 import com.assignment.banking.BankingService.exception.AccountExistException;
 import com.assignment.banking.BankingService.exception.AccountNotFoundException;
 import com.assignment.banking.BankingService.exception.AccountTransferException;
-import com.assignment.banking.BankingService.repository.IAccountRepository;
-import com.assignment.banking.BankingService.repository.ITransactionsRepository;
+import com.assignment.banking.BankingService.repository.AccountRepository;
+import com.assignment.banking.BankingService.repository.TransactionsRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,12 +21,12 @@ import java.util.UUID;
 @Service
 @Transactional(noRollbackFor = { AccountTransferException.class })
 @AllArgsConstructor
-public class AccountServiceImpl implements IAccountService {
+public class AccountServiceImpl implements AccountService {
 
     @Autowired
-    private IAccountRepository accountRepository;
+    private AccountRepository accountRepository;
     @Autowired
-    private ITransactionsRepository transactionRepository;
+    private TransactionsRepository transactionRepository;
     @Override
     public Account createAccount(Account account) {
         Optional<Account> existingAccount = accountRepository.searchByEmailId(account.getEmail());

@@ -31,17 +31,18 @@ public class AccountControllerIntegrationTesting {
     @Test
     public void testCreateAccount() throws Exception {
 
-        String accountInfo = "{\n" +
-                "    \"firstName\" : \"Amar\",\n" +
-                "    \"lastName\" : \"s\",\n" +
-                "    \"dob\" : \"1990-04-06\",\n" +
-                "    \"address\" : \"Pune\",\n" +
-                "    \"openingBalance\" : 100.00,\n" +
-                "    \"closingBalance\" : 100.00,\n" +
-                "    \"cardDetails\" : {\n" +
-                "        \"type\" : \"DEBIT\"\n" +
-                "    }\n" +
-                "}";
+        String accountInfo = """
+                {
+                    "firstName" : "Amar",
+                    "lastName" : "s",
+                    "dob" : "1990-04-06",
+                    "address" : "Pune",
+                    "openingBalance" : 100.00,
+                    "closingBalance" : 100.00,
+                    "cardDetails" : {
+                        "type" : "DEBIT"
+                    }
+                }""";
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .post("/api/banking/account")
                 .accept(MediaType.APPLICATION_JSON).content(accountInfo)
